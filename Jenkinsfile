@@ -11,14 +11,15 @@ pipeline {
     }
 
     stages {
-        // stage('Build Docker Image') {
-        //     steps {
-        //         script {
-        //             // Construisez l'image Docker
-        //             sh "docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG ."
-        //         }
-        //     }
-        // }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Construisez l'image Docker
+                    // sh "docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG ."
+                    sh "./gradlew bootBuildImage --imageName=$DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
+                }
+            }
+        }
 
          stage('Push to Docker Hub') {
              steps {
@@ -27,6 +28,7 @@ pipeline {
                     //  sh "echo '$DOCKERHUB_PASSWORD' | docker login -u $DOCKERHUB_USERNAME --password-stdin"
 
                      sh "docker tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
+
 
                      // Poussez l'image sur Docker Hub
                      sh "docker push $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
