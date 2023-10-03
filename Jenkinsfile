@@ -6,7 +6,7 @@ pipeline {
         DOCKERHUB_USERNAME = 'zalehamza'
         DOCKERHUB_PASSWORD = 'leil@2023'
         IMAGE_NAME = 'fraud'
-        IMAGE_TAG = "2.0.0"
+        IMAGE_TAG = "3.0.0"
         GITHUB_TOKEN = credentials('zalehamza')
     }
 
@@ -26,7 +26,7 @@ pipeline {
              steps {
                  script {
                      // Authentifiez-vous sur Docker Hub
-                    //  sh "echo '$DOCKERHUB_PASSWORD' | docker login -u $DOCKERHUB_USERNAME --password-stdin"
+                     sh "echo '$DOCKERHUB_PASSWORD' | docker login -u $DOCKERHUB_USERNAME --password-stdin"
 
                      sh "docker tag $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
 
