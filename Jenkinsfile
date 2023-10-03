@@ -16,6 +16,7 @@ pipeline {
                 script {
                     // Construisez l'image Docker
                     // sh "docker build -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG ."
+                    sh 'chmod +x ./gradlew'
                     sh "./gradlew bootBuildImage --imageName=$DOCKERHUB_USERNAME/$IMAGE_NAME:$IMAGE_TAG"
                 }
             }
