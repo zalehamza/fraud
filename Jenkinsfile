@@ -5,7 +5,7 @@ pipeline {
         // Remplacez ces variables par vos informations
         DOCKERHUB_USERNAME = 'zalehamza'
         DOCKERHUB_PASSWORD = 'leil@2023'
-        IMAGE_NAME = 'fraud:2.0.0'
+        IMAGE_NAME = 'fraud'
         IMAGE_TAG = "2.0.0"
         GITHUB_TOKEN = credentials('zalehamza')
     }
