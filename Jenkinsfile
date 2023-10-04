@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    //docker.withRegistry('https://registry.hub.docker.com',DOCKERHUB_CREDENTIAL) {
+    //                def customImage = docker.build("${IMAGE_NAME}:${env.BUILD_ID}")
+    //               customImage.push()
+    //          }
+
     environment {
         // Remplacez ces variables par vos informations
         DOCKERHUB_USERNAME = 'zalehamza'
