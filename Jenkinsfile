@@ -7,6 +7,8 @@ pipeline {
         DOCKERHUB_PASSWORD = 'leil@2023'
         IMAGE_NAME = 'fraud'
         IMAGE_TAG = "4.0.0"
+        GITHUB_TOKEN = credentials('github')
+
     }
 
     stages {
